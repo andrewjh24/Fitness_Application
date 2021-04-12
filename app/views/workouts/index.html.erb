@@ -14,7 +14,8 @@
       <tr>
         <td><%= workout.title %></td>
         <td><%= workout.description %></td>
-        <td>Placeholder</td>
+        <td><%= link_to 'Show', workout_path(workout) %></td>
+        <td><%= link_to 'Delete', workout_path(workout), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
