@@ -8,4 +8,12 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
+  def new
+
+  end
+
+  def create
+    render plain: params[:workout]
+  end
+
 end
