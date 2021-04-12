@@ -9,13 +9,17 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-
+    @workout = Workout.new
   end
 
   def create
     @workout = Workout.new(params.require(:workout).permit(:title, :description))
-    @workout.save
-    redirect_to @workout
+    if @workout.save
+      flash[:notice] = "Workout was created successfully"
+      redirect_to @workout
+    else
+      render 'new'
+    end
   end
 
 end
