@@ -13,7 +13,9 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    render plain: params[:workout]
+    @workout = Workout.new(params.require(:workout).permit(:title, :description))
+    @workout.save
+    redirect_to @workout
   end
 
 end
