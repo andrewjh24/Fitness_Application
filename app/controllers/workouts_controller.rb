@@ -4,4 +4,8 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
   end
 
+  def index
+    @workouts = Workout.all
+  end
+
 end

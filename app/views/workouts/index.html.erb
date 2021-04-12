@@ -1,0 +1,21 @@
+<h1>Workout Listing page</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= workout.title %></td>
+        <td><%= workout.description %></td>
+        <td>Placeholder</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
