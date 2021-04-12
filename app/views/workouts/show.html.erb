@@ -2,3 +2,7 @@
 
 <p><strong>Title: </strong><%= @workout.title %></p>
 <p><strong>Description: </strong><%= @workout.description %></p>
+
+<%= link_to 'Edit', edit_workout_path(@workout) %> |
+<%= link_to 'Delete', workout_path(@workout), method: :delete, data: { confirm: "Are you sure you want to DELETE this Workout?"}%> |
+<%= link_to 'Return to workout listing', workouts_path %>
