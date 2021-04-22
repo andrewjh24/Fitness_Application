@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
-  
+
   def show
   end
 
@@ -17,6 +17,7 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = Workout.new(workout_params)
+    @workout.user = User.first
     if @workout.save
       flash[:notice] = "Workout was created successfully"
       redirect_to @workout
