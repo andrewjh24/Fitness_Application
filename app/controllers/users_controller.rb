@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Your account infortmation successfully updated"
-      redirect_to workouts_path
+      redirect_to @user
     else
       render 'edit'
     end
