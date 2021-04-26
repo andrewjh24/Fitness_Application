@@ -54,7 +54,7 @@ class WorkoutsController < ApplicationController
 
   def require_same_user
     if current_user != @workout.user && !current_user.admin
-      flash[:alert] = "You can only edit and delete your own workout"
+      flash[:alert] = "You can only edit or delete your own workout"
       redirect_to @workout
     end
   end
