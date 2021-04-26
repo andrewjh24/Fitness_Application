@@ -10,9 +10,11 @@
         </div>
         <div class="card-body">
           <div class="card-text text-left"><td><%= simple_format(@workout.description) %></div>
-          <%= link_to "Edit", edit_workout_path(@workout), class: "btn btn-outline-primary"%>
-          <%= link_to "Delete", workout_path(@workout), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure you want to delete this workout?"}%>
-        </div>
+            <% if logged_in? && @workout.user == current_user %>
+              <%= link_to "Edit", edit_workout_path(@workout), class: "btn btn-outline-primary"%>
+              <%= link_to "Delete", workout_path(@workout), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure you want to delete this workout?"}%>
+            <% end %>
+      </div>
         <div class="card-footer text-muted">
           <small>Created <%= time_ago_in_words(@workout.created_at) %> ago,
             edited <%= time_ago_in_words(@workout.updated_at) %> ago</small>
