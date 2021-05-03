@@ -21,6 +21,8 @@ before_action :require_admin, except: [:index, :show]
 
    def show
      @difficulty = Difficulty.find(params[:id])
+     @workouts = @difficulty.workouts.paginate(page: params[:page], per_page: 3)
+
    end
 
    private
