@@ -1,0 +1,15 @@
+<h1 class="text-center mt-4">Difficulties</h1>
+
+<div class="container">
+  <% @difficulties.each do |difficulty| %>
+  <div class="row justify-content-md-center">
+    <div class="col-4 mt-4">
+      <div class="card text-center shadow mb-5 bg-info rounded">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to difficulty.name, difficulty_path(difficulty), class: "text-white"%></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
