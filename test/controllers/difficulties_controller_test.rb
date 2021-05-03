@@ -15,13 +15,13 @@ class DifficultiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should create difficulty" do
-  #   assert_difference('Difficulty.count') do
-  #     post difficulties_url, params: { difficulty: {  } }
-  #   end
-  #
-  #   assert_redirected_to difficulty_url(Difficulty.last)
-  # end
+  test "should create difficulty" do
+    assert_difference('Difficulty.count', 1) do
+      post difficulties_url, params: { difficulty: { name: "Expert" } }
+    end
+
+    assert_redirected_to difficulty_url(Difficulty.last)
+  end
 
   test "should show difficulty" do
     get difficulty_url(@difficulty)
