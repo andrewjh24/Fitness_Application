@@ -7,6 +7,9 @@
           <% if workout.user %>
           by <%= link_to workout.user.username, user_path(workout.user) %>
           <% end %>
+          <% if workout.difficulties.any? %>
+            <div class="mt-2"><%= render workout.difficulties %></div>
+          <% end %>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= link_to workout.title, workout_path(workout), class:"text-info" %></h5>
