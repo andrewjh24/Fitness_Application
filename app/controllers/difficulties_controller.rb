@@ -19,7 +19,7 @@ class DifficultiesController < ApplicationController
    end
 
    def show
-
+     @difficulty = Difficulty.find(params[:id])
    end
 
    private
