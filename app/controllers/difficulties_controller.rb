@@ -15,6 +15,21 @@ before_action :require_admin, except: [:index, :show]
      end
    end
 
+   def edit
+     @difficulty = Difficulty.find(params[:id])
+   end
+
+   def update
+     @difficulty = Difficulty.find(params[:id])
+     if @difficulty.update(difficulty_params)
+       flash[:notice] = "Updated successfully"
+       redirect_to @difficulty
+     else
+       render 'edit'
+     end
+   end
+
+
    def index
      @difficulties = Difficulty.all
    end
@@ -22,7 +37,6 @@ before_action :require_admin, except: [:index, :show]
    def show
      @difficulty = Difficulty.find(params[:id])
      @workouts = @difficulty.workouts.paginate(page: params[:page], per_page: 3)
-
    end
 
    private
