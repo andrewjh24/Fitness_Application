@@ -49,7 +49,7 @@ class WorkoutsController < ApplicationController
   end
 
   def workout_params
-    params.require(:workout).permit(:title, :description)
+    params.require(:workout).permit(:title, :description, category_ids: [])
   end
 
   def require_same_user
