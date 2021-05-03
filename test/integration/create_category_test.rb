@@ -12,4 +12,16 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_match "Beginner", response.body
   end
+
+
+  test "get new difficulty form and reject invalid difficulty submission" do
+    get "/difficulties/new"
+    assert_response :success
+    assert_no_difference 'Difficulty.count' do
+      post difficulties_path, params: { difficulty: { name: " "} }
+    end
+    assert_match "errors", response.body
+    assert_select 'div.alert'
+    assert_select 'h4.alert-heading'
+  end
 end
