@@ -1,4 +1,5 @@
 class DifficultiesController < ApplicationController
+before_action :require_admin, except: [:index, :show]
 
    def new
      @difficulty = Difficulty.new
@@ -26,6 +27,13 @@ class DifficultiesController < ApplicationController
 
    def difficulty_params
     params.require(:difficulty).permit(:name)
+   end
+
+   def require_admin
+     if !(logged_in? && current_user.admin?)
+       flash[:alert] = "Only admins can perform that action"
+       redirect_to difficulties_path
+     end
    end
 
 end

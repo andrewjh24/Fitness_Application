@@ -1,6 +1,12 @@
 require "test_helper"
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
+
+  setup do
+    @admin_user = User.create(username: "johndoe", email: "johndoe@example.com", password:"password", admin: true)
+    sign_in_as(@admin_user)
+  end
+
   test "get new difficulty form and create the difficulty" do
     get "/difficulties/new"
     assert_response :success
