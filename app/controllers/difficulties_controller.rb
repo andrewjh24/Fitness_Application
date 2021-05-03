@@ -15,7 +15,7 @@ class DifficultiesController < ApplicationController
    end
 
    def index
-
+     @difficulties = Difficulty.all
    end
 
    def show
