@@ -42,6 +42,10 @@ class WorkoutsController < ApplicationController
     redirect_to workouts_path
   end
 
+  def search
+    @workouts = Workout.where("title LIKE ?", "%" + params[:q] + "%")
+  end
+
   private
 
   def set_workout
